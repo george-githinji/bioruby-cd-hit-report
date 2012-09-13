@@ -5,11 +5,11 @@ class Cluster < Struct.new(:id,:data)
     parse_members.size
   end
 
-  def list_members
+  def members
     parse_members.join(',')
   end
 
-  def number
+  def name
     id
   end
 

@@ -24,8 +24,8 @@ Note: this software is under active development!
       puts report.least_members
 
     report.each_cluster do |c|
-      puts c.list_members
-      puts "#{c.number}-#{c.size}"
+      puts c.members 
+      puts c.name #refers to the id name allotted by cd-hit 
     end
 
 

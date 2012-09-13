@@ -7,8 +7,8 @@ require_relative "bio-cd-hit-report/cd-hit-report"
 #puts report.least_members
 
 #report.each_cluster do |c|
-  ##puts c.list_members
-  ##puts "#{c.number}-#{c.size}"
+  #puts c.name
+  #puts c.members
 #end
 
 
