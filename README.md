@@ -2,6 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/georgeG/bioruby-cd-hit-report.png)](http://travis-ci.org/georgeG/bioruby-cd-hit-report)
 
+A bioruby wrapper for parsing and reading CD-Hit cluster reports
 
 Note: this software is under active development!
 
