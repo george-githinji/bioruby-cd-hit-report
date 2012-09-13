@@ -2,7 +2,6 @@
 
 [![Build Status](https://secure.travis-ci.org/georgeG/bioruby-cd-hit-report.png)](http://travis-ci.org/georgeG/bioruby-cd-hit-report)
 
-Full description goes here
 
 Note: this software is under active development!
 
@@ -17,7 +16,7 @@ Note: this software is under active development!
 ```ruby
   require 'bio-cd-hit-report'
    
-   cluster_file = "#{ENV['HOME']}/cd-hit/cluster95.clstr"
+   cluster_file = "cluster95.clstr"
 
     report = Bio::CdHitReport.new(cluster_file)
       puts report.most_members
