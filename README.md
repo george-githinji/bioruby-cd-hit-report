@@ -15,7 +15,20 @@ Note: this software is under active development!
 ## Usage
 
 ```ruby
-    require 'bio-cd-hit-report'
+  require 'bio-cd-hit-report'
+   
+   cluster_file = "#{ENV['HOME']}/cd-hit/cluster95.clstr"
+
+    report = Bio::CdHitReport.new(cluster_file)
+      puts report.most_members
+      puts report.least_members
+
+    report.each_cluster do |c|
+      puts c.list_members
+      puts "#{c.number}-#{c.size}"
+    end
+
+
 ```
 
 The API doc is online. For more code examples see the test files in
