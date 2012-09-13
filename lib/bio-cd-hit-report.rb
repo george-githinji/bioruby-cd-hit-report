@@ -1,12 +1,12 @@
-# Please require your code below, respecting the naming conventions in the
-# bioruby directory tree.
-#
-# For example, say you have a plugin named bio-plugin, the only uncommented
-# line in this file would be 
-#
-#   require 'bio/bio-plugin/plugin'
-#
-# In this file only require other files. Avoid other source code.
+require_relative "bio-cd-hit-report/cd-hit-report"
 
-require 'bio-cd-hit-report/cd-hit-report.rb'
+cluster_file = "#{ENV['HOME']}/DBL_tags/cluster/cd-hit/cluster95.clstr"
+
+report = Bio::CdHitReport.new(cluster_file)
+
+report.each_cluster do |c|
+  #puts c.list_members
+  puts c.size
+end
+
 
