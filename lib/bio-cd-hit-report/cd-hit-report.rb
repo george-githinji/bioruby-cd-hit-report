@@ -8,19 +8,25 @@ require_relative 'cluster.rb'
       @file = file
     end
 
-
     def each_cluster(&block)
       parse.each(&block)
     end
 
-    private
+    def most_members
+      parse.map{|c|c.size}.max
+    end
 
+    def least_members
+      parse.map{|c| c.size}.min
+    end
+
+    private
     def parse
       raw_data.map do |line|
         cluster = line.split("\n").delete_if{|x| x == ">Cluster "}
         id = cluster.first
         cluster.shift
-        cluster = Cluster.new(id,cluster)
+        Cluster.new(id,cluster)
       end
     end
 

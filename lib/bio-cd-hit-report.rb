@@ -1,12 +1,14 @@
 require_relative "bio-cd-hit-report/cd-hit-report"
 
-cluster_file = "#{ENV['HOME']}/DBL_tags/cluster/cd-hit/cluster95.clstr"
+#cluster_file = "#{ENV['HOME']}/DBL_tags/cluster/cd-hit/cluster95.clstr"
 
-report = Bio::CdHitReport.new(cluster_file)
+#report = Bio::CdHitReport.new(cluster_file)
+#puts report.most_members
+#puts report.least_members
 
-report.each_cluster do |c|
-  #puts c.list_members
-  puts c.size
-end
+#report.each_cluster do |c|
+  ##puts c.list_members
+  ##puts "#{c.number}-#{c.size}"
+#end
 
 
