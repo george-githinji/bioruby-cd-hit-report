@@ -12,11 +12,15 @@ require_relative 'cluster.rb'
       cluster_objs.each(&block)
     end
 
-    def most_members
+    def total_clusters
+      cluster_objs.size
+    end
+
+    def max_members
       cluster_objs.map{|c|c.size}.max
     end
 
-    def least_members
+    def min_members
       cluster_objs.map{|c| c.size}.min
     end
 
