@@ -18,15 +18,16 @@ Note: this software is under active development!
   require 'bio-cd-hit-report'
    
    cluster_file = "cluster95.clstr"
-
     report = Bio::CdHitReport.new(cluster_file)
-      puts report.most_members
-      puts report.least_members
 
-    report.each_cluster do |c|
-      puts c.members 
-      puts c.name #refers to the id name allotted by cd-hit 
-    end
+      puts report.max_members #print the max number of sequences in a cluster for the entire dataset
+      puts report.min_members #print the minimum number of sequences in a cluster for the entire dataset
+      puts report.total_clusters #print total number of clusters in the report
+
+      report.each_cluster do |c|
+        puts "#{c.name} - #{c.members}" #print cluster name/id with respective sequences in the cluster
+        puts c.size #print the total number of entries in the cluster
+      end
 ```
 
 The API doc is online. For more code examples see the test files in
