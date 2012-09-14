@@ -26,13 +26,16 @@ require_relative 'cluster.rb'
 
     private
     def cluster_objs
-      raw_data.map do |line|
+      d = raw_data.map do |line|
         cluster = line.split("\n").delete_if{|x| x == ">Cluster "}
         id = cluster.first
         cluster.shift
+        #puts id.inspect
         Cluster.new(id,cluster)
       end
+      d.delete_if {|obj| obj.id.nil?}
     end
+
 
     def raw_data
       File.open(@file).readlines
