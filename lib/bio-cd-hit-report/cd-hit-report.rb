@@ -9,19 +9,19 @@ require_relative 'cluster.rb'
     end
 
     def each_cluster(&block)
-      parse.each(&block)
+      cluster_objs.each(&block)
     end
 
     def most_members
-      parse.map{|c|c.size}.max
+      cluster_objs.map{|c|c.size}.max
     end
 
     def least_members
-      parse.map{|c| c.size}.min
+      cluster_objs.map{|c| c.size}.min
     end
 
     private
-    def parse
+    def cluster_objs
       raw_data.map do |line|
         cluster = line.split("\n").delete_if{|x| x == ">Cluster "}
         id = cluster.first

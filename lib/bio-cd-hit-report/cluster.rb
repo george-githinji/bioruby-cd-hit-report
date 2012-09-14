@@ -1,20 +1,20 @@
-class Cluster < Struct.new(:id,:data)
+class Cluster < Struct.new(:name,:data)
   $/ = ">Cluster "
 
+  def id
+    name
+  end
+
   def size
-    parse_members.size
+    entries.size
   end
 
   def members
-    parse_members.join(',')
-  end
-
-  def name
-    id
+    entries.join(',')
   end
 
   private
-  def parse_members
+  def entries
     data.map {|entry| entry.scan(/>(.+)\.{3}/)}.flatten
   end
 end
