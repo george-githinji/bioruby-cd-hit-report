@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/georgeG/bioruby-cd-hit-report.png)](http://travis-ci.org/georgeG/bioruby-cd-hit-report)
 
-A bioruby wrapper for parsing and reading CD-Hit cluster reports
+A bioruby wrapper for parsing and reading CD-HIT cluster reports
 
 Note: this software is under active development!
 
@@ -27,8 +27,6 @@ Note: this software is under active development!
       puts c.members 
       puts c.name #refers to the id name allotted by cd-hit 
     end
-
-
 ```
 
 The API doc is online. For more code examples see the test files in
@@ -56,5 +54,4 @@ This Biogem is published at [#bio-cd-hit-report](http://biogems.info/index.html)
 
 ## Copyright
 
-Copyright (c) 2012 georgeG. See LICENSE.txt for further details.
-
+Copyright (c) 2012 George Githinji. See LICENSE.txt for further details.
