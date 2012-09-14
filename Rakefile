@@ -17,10 +17,10 @@ Jeweler::Tasks.new do |gem|
   gem.name = "bio-cd-hit-report"
   gem.homepage = "http://github.com/georgeG/bioruby-cd-hit-report"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{A bioruby wrapper for parsing and reading CD-HIT cluster reports}
+  gem.description = %Q{A bioruby wrapper for parsing and reading CD-HIT cluster reports}
   gem.email = "georgkam@gmail.com"
-  gem.authors = ["georgeG"]
+  gem.authors = ["George Githinji"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
