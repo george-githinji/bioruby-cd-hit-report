@@ -20,10 +20,19 @@ Note: this software is under active development!
    cluster_file = "cluster95.clstr"
     report = Bio::CdHitReport.new(cluster_file)
 
-      puts report.max_members #print the max number of sequences in a cluster for the entire dataset
-      puts report.min_members #print the minimum number of sequences in a cluster for the entire dataset
-      puts report.total_clusters #print total number of clusters in the report
+      #print the max number of sequences in a cluster for the entire dataset
+      puts report.max_members 
 
+      #print the minimum number of sequences in a cluster for the entire dataset
+      puts report.min_members 
+      
+      #print total number of clusters in the report
+      puts report.total_clusters  
+
+      #print the cluster members for cluster with id 1
+      puts report.get_cluster(1)
+
+      #information for each cluster
       report.each_cluster do |c|
         puts "#{c.name} - #{c.members}" #print cluster name/id with respective sequences in the cluster
         puts c.size #print the total number of entries in the cluster
