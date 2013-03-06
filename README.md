@@ -2,7 +2,9 @@
 
 [![Build Status](https://secure.travis-ci.org/georgeG/bioruby-cd-hit-report.png)](http://travis-ci.org/georgeG/bioruby-cd-hit-report)
 
-A bioruby wrapper for parsing and reading CD-HIT cluster reports
+Clustering sequences with CD-HIT produces a cluster file(.clstr)
+containing sequence names and their respective clusters. This plugin
+provides methods for interogating this file. 
 
 Note: this software is under active development!
 
@@ -38,9 +40,6 @@ Note: this software is under active development!
         puts c.size #print the total number of entries in the cluster
       end
 ```
-
-The API doc is online. For more code examples see the test files in
-the source tree.
         
 ## Project home page
 
