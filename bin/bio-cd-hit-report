@@ -4,21 +4,21 @@
 # Author:: george githinji
 # Copyright:: 2012
 
-#require 'bio-cd-hit-report'
+require_relative '../lib/bio-cd-hit-report'
 require 'ostruct'
 require 'optparse'
 
 options = OpenStruct.new
 
 OptionParser.new do |opts|
-  opts.banner = 'USAGE: '
+  opts.banner = 'USAGE: bio-cd-hit-report -i file.clstr [options] '
 
-  opts.on('-h', '--help','Display this screen') do
+  opts.on('-h', 'Display this screen') do
     puts opts
     exit
   end
 
-  opts.on('-i','--infile INPUTFILE', 'cluster file') do |infile|
+  opts.on('-i','--infile CLUSTERFILE', 'cluster file') do |infile|
     options.infile = infile
   end
 
@@ -26,10 +26,42 @@ OptionParser.new do |opts|
     options.outfile = outfile
   end
 
+  opts.on('-m','--members') do
+    options.members = true
+  end
+
+  opts.on('-c','--clusterid CLUSTERID',Integer,'cluster id') do |clusterid|
+    options.cluster_id = clusterid
+  end
+
 end.parse!
 
-begin
+clusterfile = options.infile
+outfile     = options.outfile
+cluster_id  = options.cluster_id
 
-rescue OptionParser::InvalidOption => e
-  #options[:invalid_argument] = e.message
+report = Bio::CdHitReport.new(clusterfile)
+
+#cluster id & sequence names in the cluster
+def members(report)
+  report.each_cluster.map {|c| "#{c.name}\t#{c.members}"}
 end
+
+def get_membrs(report,cluster_id)
+  report.get_cluster(cluster_id)
+end
+
+
+begin
+  unless cluster_id.nil?
+    $stdout.puts report.get_cluster(cluster_id) #get_membrs(report,cluster_id)
+  else
+    $stderr.puts members(report) if options.members 
+  end
+
+#rescue OptionParser::InvalidOption => e
+  #$stderr.puts 'Error1: ' + e.message
+#rescue OptionParser::MissingArgument => e
+  #$stderr.puts 'Error2: ' + e.message
+end
+
