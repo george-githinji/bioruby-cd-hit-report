@@ -1,28 +1,30 @@
+class Cluster
+  attr_accessor :name, :data
 
-class Cluster < Struct.new(:name,:data)
-  $/ = ">Cluster "
-
-  def id
-    name
+  def initialize(arg={})
+    @name = arg[:name]
+    @data = arg[:data] 
   end
 
-  def size
-    entries.size
+  def id
+    name.scan(/Cluster\s(.)/).join
   end
 
   def members
     entries.join(',')
   end
 
-  def get_seqs(file)
-    seqs = Bio::FlatFile.auto(file).map{ |f| f}
-    puts entries.map{|entry| seqs.select {|seq| seq.definition == entry }}
+  def representative
+    @data.split("\n").map{|line|line.scan(/>(.+)\.{3}\s\*/)}.flatten
   end
+  alias :rep_seq :representative
 
-  private
+  def size
+    entries.size
+  end
+  alias :length :size
+
   def entries
-    data.map {|entry| entry.scan(/>(.+)\.{3}/)}.flatten
+    @data.split("\n").map{|line|line.scan(/>(.+)\.{3}/)}
   end
-
 end
-
