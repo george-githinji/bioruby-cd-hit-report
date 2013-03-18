@@ -4,9 +4,9 @@
 
 Clustering sequences with CD-HIT produces a cluster file(.clstr)
 containing sequence names and their respective clusters. This plugin
-provides methods for interogating this file. 
+provides methods for parsing this file. 
 
-Note: this software is under active development!
+Note: this plugin is under active development!
 
 ## Installation
 
