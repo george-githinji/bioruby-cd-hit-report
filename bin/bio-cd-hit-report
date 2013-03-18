@@ -42,26 +42,20 @@ cluster_id  = options.cluster_id
 
 report = Bio::CdHitReport.new(clusterfile)
 
-#cluster id & sequence names in the cluster
-def members(report)
-  report.each_cluster.map {|c| "#{c.name}\t#{c.members}"}
+def print_members(report)
+ report.clusters.map{|c| "#{c.cluster_id}:#{c.members}"}
 end
 
-def get_membrs(report,cluster_id)
-  report.get_cluster(cluster_id)
+def find_members_for(report,cluster_id)
+  report.get_members(cluster_id)
 end
 
 
 begin
   unless cluster_id.nil?
-    $stdout.puts report.get_cluster(cluster_id) #get_membrs(report,cluster_id)
+    $stdout.puts find_members_for(report,cluster_id)
   else
-    $stderr.puts members(report) if options.members 
+    $stdout.puts print_members(report) if options.members
   end
-
-#rescue OptionParser::InvalidOption => e
-  #$stderr.puts 'Error1: ' + e.message
-#rescue OptionParser::MissingArgument => e
-  #$stderr.puts 'Error2: ' + e.message
 end
 
