@@ -3,14 +3,26 @@ module Bio
   require_relative 'parser'
 
   class CdHitReport
+
     def initialize(file)
-      @file = file
+      @report  = CdHitParser.new
+      @report.report_file = file
     end
 
-    def parse
-      report = CdHitParser.new
-      report.report_file = @file
-      report
+    def clusters
+      cls = []
+      @report.each do |c|
+        cls << c
+      end
+      cls
+    end
+
+    def size
+     clusters.size
+    end
+
+    def get_members(cluster_id)
+      clusters.select {|cluster| cluster.cluster_id == cluster_id.to_s}.map{|c|c.members}
     end
   end
 end
