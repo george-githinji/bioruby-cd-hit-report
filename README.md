@@ -1,4 +1,4 @@
-# bio-cd-hit-report
+[[#]] bio-cd-hit-report
 
 [![Build Status](https://secure.travis-ci.org/georgeG/bioruby-cd-hit-report.png)](http://travis-ci.org/georgeG/bioruby-cd-hit-report)
 
@@ -17,17 +17,11 @@ Note: this software is under active development!
 ## Usage
 
 ```ruby
-  require 'bio-cd-hit-report'
+    require 'bio-cd-hit-report'
    
-   cluster_file = "cluster95.clstr"
+    cluster_file = "cluster95.clstr"
     report = Bio::CdHitReport.new(cluster_file)
 
-      #print the max number of sequences in a cluster for the entire dataset
-      puts report.max_members 
-
-      #print the minimum number of sequences in a cluster for the entire dataset
-      puts report.min_members 
-      
       #print total number of clusters in the report
       puts report.total_clusters  
 
@@ -63,4 +57,4 @@ This Biogem is published at [#bio-cd-hit-report](http://biogems.info/index.html)
 
 ## Copyright
 
-Copyright (c) 2012 George Githinji. See LICENSE.txt for further details.
+Copyright (c) 2013 George Githinji. See LICENSE.txt for further details.
