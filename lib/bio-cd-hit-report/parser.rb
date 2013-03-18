@@ -1,8 +1,6 @@
 class CdHitParser
   attr_accessor :report_file
 
-  include Enumerable
-
   def each
     data,header = nil, nil
     File.open(report_file).each do |line|
