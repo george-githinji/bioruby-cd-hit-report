@@ -2,12 +2,12 @@ class Cluster
   attr_accessor :name, :data
 
   def initialize(arg={})
-    @name = arg[:name]
-    @data = arg[:data] 
+    self.name = arg[:name]
+    self.data = arg[:data] 
   end
 
-  def id
-    name.scan(/Cluster\s(.)/).join
+  def cluster_id
+    name.scan(/Cluster\s(.*)/).join
   end
 
   def members
@@ -15,7 +15,7 @@ class Cluster
   end
 
   def representative
-    @data.split("\n").map{|line|line.scan(/>(.+)\.{3}\s\*/)}.flatten
+    data.split("\n").map{|line|line.scan(/>(.+)\.{3}\s\*/)}.join
   end
   alias :rep_seq :representative
 
@@ -25,6 +25,6 @@ class Cluster
   alias :length :size
 
   def entries
-    @data.split("\n").map{|line|line.scan(/>(.+)\.{3}/)}
+    data.split("\n").map{|line|line.scan(/>(.+)\.{3}/)}
   end
 end
