@@ -10,6 +10,6 @@ group :development do
   gem "rdoc"
   gem "bundler"
   gem "jeweler"
-  gem "bio", "1.4.2"
+  gem "bio", "1.4.3"
   gem "rdoc"
 end
