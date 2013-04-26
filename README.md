@@ -30,11 +30,13 @@ Note: this plugin is under active development!
 
       #information for each cluster
       report.each_cluster do |c|
-        puts "#{c.name} - #{c.members}" #print cluster name/id with respective sequences in the cluster
+        puts c.name #print the cluster name
+        puts c.members #print respective sequence names in the cluster
+        puts c.cluster_id #print the cluster id/name
         puts c.size #print the total number of entries in the cluster
       end
       
-      #print the representative sequence for each cluster
+      #print the name of representative sequence for each cluster
       report.each_cluster do |c|
          puts c.rep_seq 
       end
